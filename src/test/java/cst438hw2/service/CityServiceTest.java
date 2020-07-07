@@ -1,5 +1,5 @@
 package cst438hw2.service;
- 
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.BDDMockito.given;
@@ -20,19 +20,19 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import static org.mockito.ArgumentMatchers.anyString;
 
 import cst438hw2.domain.*;
- 
+
 @SpringBootTest
 public class CityServiceTest {
 
 	@MockBean
 	private WeatherService weatherService;
-	
+
 	@Autowired
 	private CityService cityService;
-	
+
 	@MockBean
 	private CityRepository cityRepository;
-	
+
 	@MockBean
 	private CountryRepository countryRepository;
 
@@ -74,8 +74,8 @@ public class CityServiceTest {
 		assertEquals(res.getTemp(), expectedTemp);
 		assertEquals(res.getTime(), expectedTime);
 	}
-	
-	@Test 
+
+	@Test
 	public void  testCityNotFound() {
 		// TODO
 		Country oneCountry = new Country("AUS", "Australia");
@@ -98,10 +98,10 @@ public class CityServiceTest {
 		CityInfo res = cityService.getCityInfo("NonCity");
 
 		//check results
-    assertEquals(res, null);
+		assertEquals(res, null);
 	}
-	
-	@Test 
+
+	@Test
 	public void  testCityMultiple() {
 		// TODO
 		Country twoCountry = new Country("AUS", "Australia");

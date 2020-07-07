@@ -6,16 +6,16 @@ import javax.persistence.*;
 @Entity
 @Table(name="country")
 public class Country {
-	
+
 	@Id
 	private String code;
 	private String name;
-	
+
 	public Country() {
 		code = "code";
 		name = "name";
 	}
-	
+
 	public Country(String code, String name) {
 		this.code = code;
 		this.name = name;

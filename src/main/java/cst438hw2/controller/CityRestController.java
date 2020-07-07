@@ -13,18 +13,18 @@ import cst438hw2.service.CityService;
 
 @RestController
 public class CityRestController {
-	
+
 	@Autowired
 	private CityService cityService;
-	
+
 	@GetMapping("/api/cities/{city}")
 	public ResponseEntity<CityInfo> getWeather(@PathVariable("city") String cityName) {
 		// TODO your code goes here
-    CityInfo cityInfo = cityService.getCityInfo(cityName);
-    if(cityInfo == null) {
-    	return new ResponseEntity<CityInfo>(HttpStatus.NOT_FOUND);
+		CityInfo cityInfo = cityService.getCityInfo(cityName);
+		if(cityInfo == null) {
+			return new ResponseEntity<CityInfo>(HttpStatus.NOT_FOUND);
 		}
-    return new ResponseEntity<CityInfo>(cityInfo, HttpStatus.OK);
+		return new ResponseEntity<CityInfo>(cityInfo, HttpStatus.OK);
 	}
-	
+
 }

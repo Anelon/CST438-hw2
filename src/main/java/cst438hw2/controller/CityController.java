@@ -11,15 +11,15 @@ import cst438hw2.service.CityService;
 
 @Controller
 public class CityController {
-	
+
 	@Autowired
 	private CityService cityService;
-	
+
 	@GetMapping("/cities/{city}")
 	public String getWeather(@PathVariable("city") String cityName, Model model) {
-    CityInfo info = cityService.getCityInfo(cityName);
-    model.addAttribute("info", info);
-    return "city_info";
+		CityInfo info = cityService.getCityInfo(cityName);
+		model.addAttribute("info", info);
+		return "city_info";
 	}
-	
+
 }
