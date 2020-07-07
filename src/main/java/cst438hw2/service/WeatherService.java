@@ -11,20 +11,20 @@ import cst438hw2.domain.TempAndTime;
 
 @Service
 public class WeatherService {
-	
+
 	private static final Logger log = LoggerFactory.getLogger(WeatherService.class);
 	private RestTemplate restTemplate;
 	private String weatherUrl;
 	private String apiKey;
-	
+
 	public WeatherService(
-			@Value("${weather.url}") final String weatherUrl, 
+			@Value("${weather.url}") final String weatherUrl,
 			@Value("${weather.apikey}") final String apiKey ) {
 		this.restTemplate = new RestTemplate();
 		this.weatherUrl = weatherUrl;
-		this.apiKey = apiKey; 
+		this.apiKey = apiKey;
 	}
-	
+
 	public  TempAndTime getTempAndTime(String cityName) {
 		ResponseEntity<JsonNode> response = restTemplate.getForEntity(
 				weatherUrl + "?q=" + cityName + "&appid=" + apiKey,
@@ -32,8 +32,11 @@ public class WeatherService {
 		JsonNode json = response.getBody();
 		log.info("Status code from weather server:" + response.getStatusCodeValue());
 		double temp = json.get("main").get("temp").asDouble();
+		//System.out.println("Temp: " + temp);
 		long time = json.get("dt").asLong();
+		//System.out.println("Time: " + time);
 		int timezone = json.get("timezone").asInt();
+		//System.out.println("Temp: " + timezone);
 		return new TempAndTime(temp, time, timezone);
 	}
 }

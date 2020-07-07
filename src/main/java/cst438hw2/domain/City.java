@@ -1,12 +1,15 @@
 package cst438hw2.domain;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.Column;
 
 
 @Entity
 @Table(name="city")
 public class City {
-	
+
 	@Id
 	private long id;
 	private String name;
@@ -14,12 +17,12 @@ public class City {
 	private String countryCode;
 	private String district;
 	private int population;
-	
-	
+
+
 	public City() {
 		this(0, "name", "code", "district", 0);
 	}
-	
+
 	public City(long id, String name, String countryCode, String district, int population) {
 		super();
 		this.id = id;
@@ -29,7 +32,7 @@ public class City {
 		this.population = population;
 
 	}
-	
+
 	public long getId() {
 		return id;
 	}
@@ -64,10 +67,10 @@ public class City {
 	@Override
 	public String toString() {
 		return "City [id=" + id + ", name=" + name + ", countryCode=" + countryCode + ", district=" + district
-				+ ", population=" + population 
+				+ ", population=" + population
 				+ "]";
 	}
-	
-	
+
+
 
 }
