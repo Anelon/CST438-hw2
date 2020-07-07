@@ -1,6 +1,9 @@
 package cst438hw2.domain;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.Column;
 
 
 @Entity
