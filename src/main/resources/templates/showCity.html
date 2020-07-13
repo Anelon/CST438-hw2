@@ -7,9 +7,9 @@
 <body style="text-align: center">
 <h2>City</h2>
 
-<div style="text-align: center; margin:auto;">
+<div style="background-color: darkgray; text-align: center; margin: auto; padding:20px; display: inline-block">
   <h2 th:text="${info.name}"></h2>
-  <table style="background-color: darkgray; text-align: center; margin: auto; padding:20px">
+  <table style="border: solid black 5px; margin: auto">
     <tr>
       <td>ID:</td>
       <td th:text="${info.id}"></td>
@@ -43,6 +43,21 @@
       <td th:text="${info.time}"></td>
     </tr>
   </table>
+  <form style="text-align: left; padding:20px" action="#" th:action="@{/cities/reservation}"  method="post">
+    <input type="hidden" name="city" th:value="${info.name}">
+    <label for="email">Email</label>
+    <input type="text" id="email" name="email">
+    <br>
+
+    <input type="radio" id="luxury" name="level" value="Luxury">
+    <label for="luxury">Luxury $1000</label><br>
+    <input type="radio" id="veryGood" name="level" value="Very Good">
+    <label for="veryGood">Very Good $500</label><br>
+    <input type="radio" id="good" name="level" value="Good">
+    <label for="good">Good $350</label>
+
+    <input type="submit" value="Submit">
+  </form>
 </div>
 
 </body>
